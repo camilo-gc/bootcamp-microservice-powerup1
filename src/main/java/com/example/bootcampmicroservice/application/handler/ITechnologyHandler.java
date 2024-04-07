@@ -9,6 +9,6 @@ public interface ITechnologyHandler {
 
     void saveTechnology(TechnologyRequestDto technologyRequestDto);
 
-//    List<TechnologyResponseDto> getAllTechnologies();
+    List<TechnologyResponseDto> getAllTechnologies(String orderBy, Integer page, Integer size);
 
 }

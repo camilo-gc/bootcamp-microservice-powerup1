@@ -36,16 +36,16 @@ public class TechnologyRestController {
 
     }
 
-//    @Operation(summary = "Get all the Technologies")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "All technologies returned",
-//                    content = @Content(mediaType = "application/json",
-//                            array = @ArraySchema(schema = @Schema(implementation = TechnologyResponseDto.class)))),
-//            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
-//    })
-//    @GetMapping("/all")
-//    public ResponseEntity<List<TechnologyResponseDto>> getAllPokemonFromPokedex() {
-//        return ResponseEntity.ok(technologyHandler.getAllTechnologies());
-//    }
+    @Operation(summary = "Get all the Technologies")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "All technologies returned",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = TechnologyResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
+    })
+    @GetMapping("/all")
+    public ResponseEntity<List<TechnologyResponseDto>> getAllPokemonFromPokedex(@RequestParam(defaultValue = "ASC") String orderBy, @RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "5") Integer size) {
+        return ResponseEntity.ok(technologyHandler.getAllTechnologies(orderBy, page, size));
+    }
 
 }

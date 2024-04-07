@@ -17,7 +17,7 @@ public class TechnologyHandlerImpl implements ITechnologyHandler {
 
     private final ITechnologyServicePort technologyServicePort;
     private final TechnologyRequestMapper technologyRequestMapper;
-//    private final TechnologyResponseMapper technologyResponseMapper;
+    private final TechnologyResponseMapper technologyResponseMapper;
 
     @Override
     public void saveTechnology(TechnologyRequestDto technologyRequestDto) {
@@ -26,9 +26,9 @@ public class TechnologyHandlerImpl implements ITechnologyHandler {
         );
     }
 
-//    @Override
-//    public List<TechnologyResponseDto> getAllTechnologies() {
-//        return technologyResponseMapper.toResponseList(technologyServicePort.getAllTechnologies());
-//    }
+    @Override
+    public List<TechnologyResponseDto> getAllTechnologies(String orderBy, Integer page, Integer size) {
+        return technologyResponseMapper.toResponseList(technologyServicePort.getAllTechnologies(orderBy, page, size));
+    }
 
 }

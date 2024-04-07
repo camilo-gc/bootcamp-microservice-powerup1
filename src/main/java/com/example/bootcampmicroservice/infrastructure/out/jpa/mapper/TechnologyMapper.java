@@ -16,6 +16,6 @@ public interface TechnologyMapper {
 
     TechnologyModel toModel(TechnologyEntity technologyEntity);
 
-//    List<TechnologyModel> toTechnologyList(List<TechnologyEntity> technologyEntityList);
+    List<TechnologyModel> toTechnologyList(List<TechnologyEntity> technologyEntityList);
 
 }
