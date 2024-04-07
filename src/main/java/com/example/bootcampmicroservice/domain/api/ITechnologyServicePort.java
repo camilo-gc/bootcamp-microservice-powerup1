@@ -8,6 +8,6 @@ public interface ITechnologyServicePort {
 
     TechnologyModel saveTechnology(TechnologyModel technologyModel);
 
-//    List<TechnologyModel> getAllTechnologies();
+    List<TechnologyModel> getAllTechnologies(String orderBy, Integer page, Integer size);
 
 }

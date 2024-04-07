@@ -8,6 +8,8 @@ import com.example.bootcampmicroservice.infrastructure.out.jpa.entity.Technology
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.TechnologyMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.ITechnologyRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -27,13 +29,18 @@ public class TechnologyJpaAdapter implements ITechnologyPersistencePort {
         );
     }
 
-//    @Override
-//    public List<TechnologyModel> getAllTechnologies() {
-//        List<TechnologyEntity> technologyEntityList = technologyRepository.findAll();
-//        if (technologyEntityList.isEmpty()) {
-//            throw new NoDataFoundException();
-//        }
-//        return technologyMapper.toTechnologyList(technologyEntityList);
-//    }
+    @Override
+    public List<TechnologyModel> getAllTechnologies(String orderBy, Integer page, Integer size) {
+        List<TechnologyEntity> technologyEntityList;
+        if (orderBy.equals("ASC")){
+            technologyEntityList = technologyRepository.findAll(PageRequest.of(page, size, Sort.by("name").ascending())).toList();
+        } else {
+            technologyEntityList = technologyRepository.findAll(PageRequest.of(page, size, Sort.by("name").descending())).toList();
+        }
+        if (technologyEntityList.isEmpty()) {
+            throw new NoDataFoundException();
+        }
+        return technologyMapper.toTechnologyList(technologyEntityList);
+    }
 
 }
