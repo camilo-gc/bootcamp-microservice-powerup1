@@ -1,6 +1,5 @@
 package com.example.bootcampmicroservice.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,7 @@ import javax.validation.constraints.*;
 @Getter
 @Setter
 public class TechnologyRequestDto {
-    @JsonIgnore
+
     private Long id;
     @NotNull
     @NotBlank
