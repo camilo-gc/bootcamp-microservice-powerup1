@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "technologies")
+@Table(name = "capacities")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class TechnologyEntity {
+public class CapacityEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,12 @@ public class TechnologyEntity {
     private String name;
     private String description;
 
-    @ManyToMany(mappedBy = "technologiesEntity")
-    private Set<CapacityEntity> capacitiesEntity;
+    @ManyToMany
+    @JoinTable(
+            name = "capacities_technologies",
+            joinColumns = @JoinColumn(name = "capacity_id"),
+            inverseJoinColumns = @JoinColumn(name = "technology_id")
+    )
+    private Set<TechnologyEntity> technologiesEntity;
 
 }
