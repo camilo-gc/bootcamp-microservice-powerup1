@@ -1,9 +1,7 @@
 package com.example.bootcampmicroservice.infrastructure.out.jpa.adapter;
 
 import com.example.bootcampmicroservice.domain.model.CapacityModel;
-import com.example.bootcampmicroservice.domain.model.TechnologyModel;
 import com.example.bootcampmicroservice.domain.spi.ICapacityPersistencePort;
-import com.example.bootcampmicroservice.infrastructure.exception.TechnologyNameAlreadyExistsException;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.CapacityEntityMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.ICapacityRepository;
 import lombok.RequiredArgsConstructor;

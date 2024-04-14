@@ -23,9 +23,11 @@ public class CapacityEntity {
     private String description;
 
     @ManyToMany
-    @JoinTable(name = "capacities_technologies",
-                joinColumns = @JoinColumn(name = "capacities_id"),
-                inverseJoinColumns = @JoinColumn(name = "technologies_id"))
+    @JoinTable(
+            name = "capacities_technologies",
+            joinColumns = @JoinColumn(name = "capacity_id"),
+            inverseJoinColumns = @JoinColumn(name = "technology_id")
+    )
     private Set<TechnologyEntity> technologiesEntity;
 
 }

@@ -1,9 +1,6 @@
 package com.example.bootcampmicroservice.domain.spi;
 
 import com.example.bootcampmicroservice.domain.model.CapacityModel;
-import com.example.bootcampmicroservice.domain.model.TechnologyModel;
-
-import java.util.List;
 
 public interface ICapacityPersistencePort {
 

@@ -1,5 +1,6 @@
 package com.example.bootcampmicroservice.application.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,7 @@ import javax.validation.constraints.*;
 
 @Getter
 @Setter
+@Data
 public class TechnologyRequestDto {
 
     private Long id;

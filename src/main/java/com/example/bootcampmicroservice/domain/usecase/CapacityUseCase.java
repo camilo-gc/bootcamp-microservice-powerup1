@@ -5,7 +5,6 @@ import com.example.bootcampmicroservice.domain.exception.MaxTechnologiesExceptio
 import com.example.bootcampmicroservice.domain.exception.MinTechnologiesException;
 import com.example.bootcampmicroservice.domain.model.CapacityModel;
 import com.example.bootcampmicroservice.domain.spi.ICapacityPersistencePort;
-import com.example.bootcampmicroservice.domain.spi.ITechnologyPersistencePort;
 
 public class CapacityUseCase implements ICapacityServicePort {
 
