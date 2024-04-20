@@ -1,6 +1,8 @@
 package com.example.bootcampmicroservice.infrastructure.exceptionhandler;
 
+import com.example.bootcampmicroservice.domain.exception.MaxCapacitiesException;
 import com.example.bootcampmicroservice.domain.exception.MaxTechnologiesException;
+import com.example.bootcampmicroservice.domain.exception.MinCapacitiesException;
 import com.example.bootcampmicroservice.domain.exception.MinTechnologiesException;
 import com.example.bootcampmicroservice.infrastructure.exception.*;
 import org.springframework.http.HttpStatus;
@@ -44,4 +46,17 @@ public class ControllerAdvisor {
                 .body(Collections.singletonMap(MESSAGE, ExceptionResponse.MAX_TECHNOLOGIES_ALLOWED.getMessage()));
     }
 
+    @ExceptionHandler(MinCapacitiesException.class)
+    public ResponseEntity<Map<String, String>> handleMinCapacitiesException(
+            MinCapacitiesException minCapacitiesException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.MIN_CAPACITIES_ALLOWED.getMessage()));
+    }
+
+    @ExceptionHandler(MaxCapacitiesException.class)
+    public ResponseEntity<Map<String, String>> handleMaxCapacitiesException(
+            MaxCapacitiesException maxCapacitiesException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.MAX_CAPACITIES_ALLOWED.getMessage()));
+    }
 }
