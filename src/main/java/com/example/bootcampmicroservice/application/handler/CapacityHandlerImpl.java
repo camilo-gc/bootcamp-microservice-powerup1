@@ -1,11 +1,15 @@
 package com.example.bootcampmicroservice.application.handler;
 
 import com.example.bootcampmicroservice.application.dto.CapacityRequestDto;
+import com.example.bootcampmicroservice.application.dto.CapacityResponseDto;
 import com.example.bootcampmicroservice.application.mapper.CapacityRequestMapper;
+import com.example.bootcampmicroservice.application.mapper.CapacityResponseMapper;
 import com.example.bootcampmicroservice.domain.api.ICapacityServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -14,7 +18,7 @@ public class CapacityHandlerImpl implements ICapacityHandler {
 
     private final ICapacityServicePort capacityServicePort;
     private final CapacityRequestMapper capacityRequestMapper;
-//    private final TechnologyResponseMapper technologyResponseMapper;
+    private final CapacityResponseMapper capacityResponseMapper;
 
     @Override
     public void saveCapacity(CapacityRequestDto capacityRequestDto) {
@@ -23,9 +27,9 @@ public class CapacityHandlerImpl implements ICapacityHandler {
         );
     }
 
-//    @Override
-//    public List<TechnologyResponseDto> getAllTechnologies(String orderBy, Integer page, Integer size) {
-//        return technologyResponseMapper.toResponseList(technologyServicePort.getAllTechnologies(orderBy, page, size));
-//    }
+    @Override
+    public List<CapacityResponseDto> getAllTechnologies(String orderBy, Integer numberTechnologies, Integer page, Integer size) {
+        return capacityResponseMapper.toResponseList(capacityServicePort.getAllCapacities(orderBy, numberTechnologies, page, size));
+    }
 
 }

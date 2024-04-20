@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
 import java.util.Set;
 
 @Mapper(componentModel = "spring",
@@ -24,4 +25,7 @@ public interface CapacityEntityMapper {
     Set<TechnologyEntity> toTechnologyEntityList(Set<TechnologyModel> technologyEntityList);
 
     Set<TechnologyModel> toTechnologyModelList(Set<TechnologyEntity> technologyEntityList);
+
+    List<CapacityModel> toModelList(List<CapacityEntity> capacityEntity);
+
 }

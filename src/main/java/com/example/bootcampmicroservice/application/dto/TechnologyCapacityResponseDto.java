@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TechnologyResponseDto {
+public class TechnologyCapacityResponseDto {
     private Long id;
     private String name;
-    private String description;
 }
