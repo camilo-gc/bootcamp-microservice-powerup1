@@ -3,10 +3,13 @@ package com.example.bootcampmicroservice.application.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
-public class TechnologyResponseDto {
+public class CapacityResponseDto {
     private Long id;
     private String name;
     private String description;
+    private Set<TechnologyCapacityResponseDto> technologies;
 }

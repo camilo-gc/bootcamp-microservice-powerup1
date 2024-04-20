@@ -1,6 +1,7 @@
 package com.example.bootcampmicroservice.application.handler;
 
 import com.example.bootcampmicroservice.application.dto.CapacityRequestDto;
+import com.example.bootcampmicroservice.application.dto.CapacityResponseDto;
 import com.example.bootcampmicroservice.application.dto.TechnologyRequestDto;
 import com.example.bootcampmicroservice.application.dto.TechnologyResponseDto;
 
@@ -10,6 +11,6 @@ public interface ICapacityHandler {
 
     void saveCapacity(CapacityRequestDto capacityRequestDto);
 
-//    List<TechnologyResponseDto> getAllTechnologies(String orderBy, Integer page, Integer size);
+    List<CapacityResponseDto> getAllTechnologies(String orderBy, Integer numberTechnologies, Integer page, Integer size);
 
 }

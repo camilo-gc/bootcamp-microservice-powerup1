@@ -6,6 +6,8 @@ import com.example.bootcampmicroservice.domain.exception.MinTechnologiesExceptio
 import com.example.bootcampmicroservice.domain.model.CapacityModel;
 import com.example.bootcampmicroservice.domain.spi.ICapacityPersistencePort;
 
+import java.util.List;
+
 public class CapacityUseCase implements ICapacityServicePort {
 
     private final ICapacityPersistencePort capacityPersistencePort;
@@ -21,9 +23,15 @@ public class CapacityUseCase implements ICapacityServicePort {
         return capacityPersistencePort.saveCapacity(capacityModel);
     }
 
-//    @Override
-//    public List<TechnologyModel> getAllTechnologies(String orderBy, Integer page, Integer size) {
-//        return technologyPersistencePort.getAllTechnologies(orderBy, page, size);
-//    }
+    @Override
+    public List<CapacityModel> getAllCapacities(String orderBy, Integer numberTechnologies, Integer page, Integer size) {
+        List<CapacityModel> capacityModelList = capacityPersistencePort.getAllCapacities(orderBy, numberTechnologies, page, size);
+        if (numberTechnologies!=null && numberTechnologies !=0) {
+            return capacityModelList.stream()
+                    .filter(capacityEntity -> capacityEntity.getTechnologies().size() == numberTechnologies)
+                    .toList();
+        }
+        return capacityModelList;
+    }
 
 }
