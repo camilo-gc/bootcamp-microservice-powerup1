@@ -2,9 +2,15 @@ package com.example.bootcampmicroservice.infrastructure.out.jpa.adapter;
 
 import com.example.bootcampmicroservice.domain.model.BootcampModel;
 import com.example.bootcampmicroservice.domain.spi.IBootcampPersistencePort;
+import com.example.bootcampmicroservice.infrastructure.exception.NoDataFoundException;
+import com.example.bootcampmicroservice.infrastructure.out.jpa.entity.BootcampEntity;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.BootcampEntityMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.IBootcampRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 public class BootcampJpaAdapter implements IBootcampPersistencePort {
@@ -19,21 +25,22 @@ public class BootcampJpaAdapter implements IBootcampPersistencePort {
         );
     }
 
-//    @Override
-//    public List<CapacityModel> getAllCapacities(String orderBy, Integer numberTechnologies, Integer page, Integer size){
-//        List<CapacityEntity> capacityEntityList;
-//        if (orderBy.equals("ASC")){
-//            capacityEntityList = bootcampRepository.findAll(PageRequest.of(page, size, Sort.by("name").ascending())).toList();
-//        } else {
-//            capacityEntityList = bootcampRepository.findAll(PageRequest.of(page, size, Sort.by("name").descending())).toList();
-//        }
-//        if (capacityEntityList.isEmpty()) {
-//            throw new NoDataFoundException();
-//        }
-//
-//        return capacityEntityMapper.toModelList(
-//                capacityEntityList
-//        );
-//    }
+    @Override
+    public List<BootcampModel> getAllBootcamps(String orderBy, Integer numberCapacities, Integer page, Integer size){
+        List<BootcampEntity> bootcampEntityList;
+        if (orderBy.equals("ASC")){
+            bootcampEntityList = bootcampRepository.findAll(PageRequest.of(page, size, Sort.by("name").ascending())).toList();
+        } else {
+            bootcampEntityList = bootcampRepository.findAll(PageRequest.of(page, size, Sort.by("name").descending())).toList();
+        }
+
+        if (bootcampEntityList.isEmpty()) {
+            throw new NoDataFoundException();
+        }
+
+        return bootcampEntityMapper.toModelList(
+                bootcampEntityList
+        );
+    }
 
 }

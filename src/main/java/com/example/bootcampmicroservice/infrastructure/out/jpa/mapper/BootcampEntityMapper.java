@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
 import java.util.Set;
 
 @Mapper(componentModel = "spring",
@@ -25,6 +26,12 @@ public interface BootcampEntityMapper {
 
     Set<CapacityModel> toCapacityModelList(Set<CapacityEntity> capacitiesEntity);
 
-//    List<CapacityModel> toModelList(List<CapacityEntity> capacityEntity);
+    List<BootcampModel> toModelList(List<BootcampEntity> bootcampEntity);
+
+    @Mapping(target = "technologiesEntity", source = "technologies")
+    CapacityEntity toTechnologyEntity(CapacityModel capacityModel);
+
+    @Mapping(target = "technologies", source = "technologiesEntity")
+    CapacityModel toTechnologyModel(CapacityEntity capacityEntity);
 
 }
