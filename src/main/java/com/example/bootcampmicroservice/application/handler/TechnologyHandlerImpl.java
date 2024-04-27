@@ -1,7 +1,7 @@
 package com.example.bootcampmicroservice.application.handler;
 
-import com.example.bootcampmicroservice.application.dto.TechnologyRequestDto;
-import com.example.bootcampmicroservice.application.dto.TechnologyResponseDto;
+import com.example.bootcampmicroservice.application.dto.request.TechnologyRequestDto;
+import com.example.bootcampmicroservice.application.dto.response.TechnologyResponseDto;
 import com.example.bootcampmicroservice.application.mapper.*;
 import com.example.bootcampmicroservice.domain.api.ITechnologyServicePort;
 import lombok.RequiredArgsConstructor;
