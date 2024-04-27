@@ -1,6 +1,6 @@
 package com.example.bootcampmicroservice.application.mapper;
 
-import com.example.bootcampmicroservice.application.dto.BootcampRequestDto;
+import com.example.bootcampmicroservice.application.dto.request.BootcampRequestDto;
 import com.example.bootcampmicroservice.domain.model.BootcampModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

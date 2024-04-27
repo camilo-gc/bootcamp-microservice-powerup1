@@ -1,7 +1,7 @@
 package com.example.bootcampmicroservice.infrastructure.input.rest;
 
-import com.example.bootcampmicroservice.application.dto.TechnologyRequestDto;
-import com.example.bootcampmicroservice.application.dto.TechnologyResponseDto;
+import com.example.bootcampmicroservice.application.dto.request.TechnologyRequestDto;
+import com.example.bootcampmicroservice.application.dto.response.TechnologyResponseDto;
 import com.example.bootcampmicroservice.application.handler.ITechnologyHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

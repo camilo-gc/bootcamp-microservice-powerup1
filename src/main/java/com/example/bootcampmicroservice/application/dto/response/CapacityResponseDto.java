@@ -1,4 +1,4 @@
-package com.example.bootcampmicroservice.application.dto;
+package com.example.bootcampmicroservice.application.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

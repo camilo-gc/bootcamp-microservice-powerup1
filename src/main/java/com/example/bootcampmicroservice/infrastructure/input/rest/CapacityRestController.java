@@ -1,7 +1,7 @@
 package com.example.bootcampmicroservice.infrastructure.input.rest;
 
-import com.example.bootcampmicroservice.application.dto.CapacityRequestDto;
-import com.example.bootcampmicroservice.application.dto.CapacityResponseDto;
+import com.example.bootcampmicroservice.application.dto.request.CapacityRequestDto;
+import com.example.bootcampmicroservice.application.dto.response.CapacityResponseDto;
 import com.example.bootcampmicroservice.application.handler.ICapacityHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

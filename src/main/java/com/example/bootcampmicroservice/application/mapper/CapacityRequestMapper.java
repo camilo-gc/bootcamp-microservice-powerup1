@@ -1,9 +1,7 @@
 package com.example.bootcampmicroservice.application.mapper;
 
-import com.example.bootcampmicroservice.application.dto.CapacityRequestDto;
-import com.example.bootcampmicroservice.application.dto.TechnologyRequestDto;
+import com.example.bootcampmicroservice.application.dto.request.CapacityRequestDto;
 import com.example.bootcampmicroservice.domain.model.CapacityModel;
-import com.example.bootcampmicroservice.domain.model.TechnologyModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
