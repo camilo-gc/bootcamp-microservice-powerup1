@@ -6,6 +6,8 @@ import com.example.bootcampmicroservice.domain.exception.MinCapacitiesException;
 import com.example.bootcampmicroservice.domain.model.BootcampModel;
 import com.example.bootcampmicroservice.domain.spi.IBootcampPersistencePort;
 
+import java.util.List;
+
 public class BootcampUseCase implements IBootcampServicePort {
 
     private final IBootcampPersistencePort bootcampPersistencePort;
@@ -21,15 +23,15 @@ public class BootcampUseCase implements IBootcampServicePort {
         return bootcampPersistencePort.saveBootcamp(bootcampModel);
     }
 
-//    @Override
-//    public List<CapacityModel> getAllCapacities(String orderBy, Integer numberTechnologies, Integer page, Integer size) {
-//        List<CapacityModel> capacityModelList = capacityPersistencePort.getAllCapacities(orderBy, numberTechnologies, page, size);
-//        if (numberTechnologies!=null && numberTechnologies !=0) {
-//            return capacityModelList.stream()
-//                    .filter(capacityEntity -> capacityEntity.getTechnologies().size() == numberTechnologies)
-//                    .toList();
-//        }
-//        return capacityModelList;
-//    }
+    @Override
+    public List<BootcampModel> getAllBootcamps(String orderBy, Integer numberCapacities, Integer page, Integer size) {
+        List<BootcampModel> bootcampModelList = bootcampPersistencePort.getAllBootcamps(orderBy, numberCapacities, page, size);
+        if (numberCapacities!=null && numberCapacities !=0) {
+            return bootcampModelList.stream()
+                    .filter(bootcampEntity -> bootcampEntity.getCapacities().size() == numberCapacities)
+                    .toList();
+        }
+        return bootcampModelList;
+    }
 
 }

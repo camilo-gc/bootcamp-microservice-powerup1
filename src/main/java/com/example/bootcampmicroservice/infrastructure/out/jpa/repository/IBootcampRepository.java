@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IBootcampRepository extends JpaRepository<BootcampEntity, Long> {
 
+    //metodo personalizado para traerme la data filtrada
+
 }
