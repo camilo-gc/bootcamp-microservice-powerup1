@@ -6,7 +6,8 @@ public enum ExceptionResponse {
     MIN_TECHNOLOGIES_ALLOWED("Minimum number of technologies not allowed"),
     MAX_TECHNOLOGIES_ALLOWED("Maximum number of technologies not allowed"),
     MIN_CAPACITIES_ALLOWED("Minimum number of capacities not allowed"),
-    MAX_CAPACITIES_ALLOWED("Maximum number of capacities not allowed");
+    MAX_CAPACITIES_ALLOWED("Maximum number of capacities not allowed"),
+    END_DATE_NOT_ALLOWED("End date cannot be less than the start date.");
 
     private String message;
 

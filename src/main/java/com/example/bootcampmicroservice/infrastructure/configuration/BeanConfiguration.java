@@ -3,21 +3,27 @@ package com.example.bootcampmicroservice.infrastructure.configuration;
 import com.example.bootcampmicroservice.domain.api.IBootcampServicePort;
 import com.example.bootcampmicroservice.domain.api.ICapacityServicePort;
 import com.example.bootcampmicroservice.domain.api.ITechnologyServicePort;
+import com.example.bootcampmicroservice.domain.api.IVersionServicePort;
 import com.example.bootcampmicroservice.domain.spi.IBootcampPersistencePort;
 import com.example.bootcampmicroservice.domain.spi.ICapacityPersistencePort;
 import com.example.bootcampmicroservice.domain.spi.ITechnologyPersistencePort;
+import com.example.bootcampmicroservice.domain.spi.IVersionPersistencePort;
 import com.example.bootcampmicroservice.domain.usecase.BootcampUseCase;
 import com.example.bootcampmicroservice.domain.usecase.CapacityUseCase;
 import com.example.bootcampmicroservice.domain.usecase.TechnologyUseCase;
+import com.example.bootcampmicroservice.domain.usecase.VersionUseCase;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.adapter.BootcampJpaAdapter;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.adapter.CapacityJpaAdapter;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.adapter.TechnologyJpaAdapter;
+import com.example.bootcampmicroservice.infrastructure.out.jpa.adapter.VersionJpaAdapter;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.BootcampEntityMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.CapacityEntityMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.TechnologyMapper;
+import com.example.bootcampmicroservice.infrastructure.out.jpa.mapper.VersionEntityMapper;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.IBootcampRepository;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.ICapacityRepository;
 import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.ITechnologyRepository;
+import com.example.bootcampmicroservice.infrastructure.out.jpa.repository.IVersionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +38,8 @@ public class BeanConfiguration {
     private final CapacityEntityMapper capacityEntityMapper;
     private final IBootcampRepository bootcampRepository;
     private final BootcampEntityMapper bootcampEntityMapper;
+    private final IVersionRepository versionRepository;
+    private final VersionEntityMapper versionEntityMapper;
 
     @Bean
     public ITechnologyPersistencePort technologyPersistencePort() {
@@ -58,6 +66,15 @@ public class BeanConfiguration {
     @Bean
     public IBootcampServicePort bootcampServicePort() {
         return new BootcampUseCase(bootcampPersistencePort());
+    }
+
+    @Bean
+    public IVersionPersistencePort versionPersistencePort() {
+        return new VersionJpaAdapter(versionRepository, versionEntityMapper);
+    }
+    @Bean
+    public IVersionServicePort VersionServicePort() {
+        return new VersionUseCase(versionPersistencePort());
     }
 
 }
