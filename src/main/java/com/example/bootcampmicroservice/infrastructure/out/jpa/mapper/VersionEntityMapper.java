@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
@@ -17,16 +19,6 @@ public interface VersionEntityMapper {
     @Mapping(target = "bootcamp", source = "bootcampEntity")
     VersionModel toModel(VersionEntity bootcampEntity);
 
-//    Set<CapacityEntity> toCapacityEntityList(Set<CapacityModel> capacitiesModel);
-//
-//    Set<CapacityModel> toCapacityModelList(Set<CapacityEntity> capacitiesEntity);
-//
-//    List<BootcampModel> toModelList(List<BootcampEntity> bootcampEntity);
-//
-//    @Mapping(target = "technologiesEntity", source = "technologies")
-//    CapacityEntity toTechnologyEntity(CapacityModel capacityModel);
-//
-//    @Mapping(target = "technologies", source = "technologiesEntity")
-//    CapacityModel toTechnologyModel(CapacityEntity capacityEntity);
+    List<VersionModel> toModelList(List<VersionEntity> bootcampEntity);
 
 }

@@ -5,6 +5,9 @@ import com.example.bootcampmicroservice.domain.exception.EndDateNotAllowedExcept
 import com.example.bootcampmicroservice.domain.model.VersionModel;
 import com.example.bootcampmicroservice.domain.spi.IVersionPersistencePort;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class VersionUseCase implements IVersionServicePort {
 
     private final IVersionPersistencePort versionPersistencePort;
@@ -19,15 +22,9 @@ public class VersionUseCase implements IVersionServicePort {
         return versionPersistencePort.saveVersion(version);
     }
 
-//    @Override
-//    public List<BootcampModel> getAllBootcamps(String orderBy, Integer numberCapacities, Integer page, Integer size) {
-//        List<BootcampModel> bootcampModelList = bootcampPersistencePort.getAllBootcamps(orderBy, numberCapacities, page, size);
-//        if (numberCapacities!=null && numberCapacities !=0) {
-//            return bootcampModelList.stream()
-//                    .filter(bootcampEntity -> bootcampEntity.getCapacities().size() == numberCapacities)
-//                    .toList();
-//        }
-//        return bootcampModelList;
-//    }
+    @Override
+    public List<VersionModel> getAllVersions(String startDate, Integer maxCapacity, Long bootcampId, String orderBy, Integer page, Integer size) {
+        return versionPersistencePort.getAllVersionsByBootcampId(startDate, maxCapacity, bootcampId, orderBy, page, size);
+    }
 
 }
